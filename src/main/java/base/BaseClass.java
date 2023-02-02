@@ -3,6 +3,7 @@ package base;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeMethod;
 import utility.PropertyFileOperation;
@@ -26,6 +27,7 @@ protected WebDriver driver;
 
         launchInstance(browserToLaunch);
         driver.get(PropertyFileOperation.getPropertyValue("Url"));
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
 
@@ -37,6 +39,9 @@ protected WebDriver driver;
         else if(browserToLaunch.equalsIgnoreCase("Firefox")){
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
+        } else if (browserToLaunch.equalsIgnoreCase("edge")) {
+            WebDriverManager.edgedriver().setup();
+            driver =  new EdgeDriver();
         }
     }
 }

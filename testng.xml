@@ -4,6 +4,7 @@
     <test name="Test Basics 1">
         <classes>
             <class name="com.disys.testcase.SampleTestCase"/>
+            <class name="com.disys.testcase.SampleTestCase"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->
